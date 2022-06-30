@@ -1,0 +1,31 @@
+@import "./colors";
+@import "./mixins";
+
+@mixin button {
+    cursor: pointer;
+
+    padding: 1rem 2rem;
+    width: 200px;
+    height: 42px;;
+
+    background: transparent;
+    background: $main-color;
+    color: white;
+
+    font-family: 'Roboto';
+    font-size:20px;
+
+    border-radius: 6px;
+
+    @include flex-center;
+   
+}
+
+@mixin hover {
+   
+    transition: 0.3s ease-in-out;
+    color: $main-color;
+    background-color: white;
+    border: 1px solid $main-color;
+    font-family: 'Roboto'
+}
