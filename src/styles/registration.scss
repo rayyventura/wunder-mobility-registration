@@ -30,6 +30,8 @@
         @include hover;
     }
 
+    
+
     width: 400px;
     height: 500px;
     background-color: white;
@@ -42,10 +44,41 @@
     align-items: center;
 
     padding: 2rem;
-
-
+    @media(max-width:430px){
+        width: 300px;
+        .header{
+            font-size: 2rem;
+        }
+    }
+    @media(max-width:315px){
+        width: 280px;
+        .header{
+            font-size: 1.5rem;
+        }
+       
+    }
 
 }
+
+.progressbar {
+    width: 400px;
+    height: 10px;
+    background-color: white;
+    margin-bottom: -100px;
+
+    @media(max-width:430px){
+        width: 300px;
+    }
+    @media(max-width:315px){
+        width: 280px;
+    }
+  }
+  
+  .progressbar div {
+    width: 33.3%;
+    height: 100%;
+    background-color: $main-color;
+  }
 
 .containter {
     background: $main-color;

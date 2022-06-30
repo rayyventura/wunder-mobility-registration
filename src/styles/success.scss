@@ -1,0 +1,12 @@
+@import "./mixins";
+
+.success{
+    margin-top: 5rem;
+
+    img{
+        width:83px;
+    }
+
+    flex-direction:column;
+    @include flex-center
+}

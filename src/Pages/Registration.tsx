@@ -1,27 +1,90 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import AddressInfo from '../Components/AddressInfo';
 import PaymentInfo from '../Components/PaymentInfo';
 import PersonalInfo from '../Components/PersonalInfo';
 import SuccessInfo from '../Components/SuccessInfo';
 import "../styles/registration.scss"
+import useForm from '../hooks/useForm';
+import * as api from "../services/api";
+
+
 
 export default function Registration() {
   const [page, setPage] = useState(0);
   const [formTitle, setFormTitle] = useState(["Personal Information", "Address ", "Payment ", "Finished"])
+  const { form } = useForm();
+  const [formData, setFormData] = useState({ ...form });
+  const [successData, setSuccessData] = useState<any>()
+
+  useMemo(() => {
+    const savedPage = JSON.parse(localStorage.getItem('page-wunder-mobility')!)
+    if (savedPage !== null) {
+      setPage(savedPage)
+    }
+
+  }, [])
+
+  interface Target {
+    name: string;
+    value: string;
+  }
+  function handleChange({ name, value }: Target) {
+    setFormData({ ...formData, [name]: value });
+  }
+
+  function navigateForward() {
+    setPage(page + 1);
+    localStorage.setItem("page-wunder-mobility", JSON.stringify(page + 1));
+
+    if (page === 2) {
+      try {
+        const response = api.savePaymentData({
+          customerId: 1,
+          iban: formData.iban,
+          owner: formData.acountOwner
+        }
+        )
+        setSuccessData(response);
+        api.register(formData);
+      } catch (error) {
+        console.log(error);
+      }
+
+    } else {
+      localStorage.setItem("registration-wunder-mobility", JSON.stringify(formData));
+
+    }
+
+
+  }
 
   function PageView() {
     switch (page) {
       case 0:
-        return <PersonalInfo />;
+        return <PersonalInfo
+          handleChange={handleChange}
+          formData={formData}
+        />;
       case 1:
-        return <AddressInfo />;
+        return <AddressInfo
+          handleChange={handleChange}
+          formData={formData}
+        />;
       case 2:
-        return <PaymentInfo />
-      default: return <SuccessInfo />
+        return <PaymentInfo
+          handleChange={handleChange}
+          formData={formData}
+        />
+      default: return <SuccessInfo successData={successData} />
     }
   }
   return (
     <div className="containter">
+      <div className="progressbar">
+        <div
+          style={{ width: page === 0 ? "25%" : page == 1 ? "50%" : page == 2 ? "75%" : "100%" }}
+        ></div>
+      </div>
       <div className="form-container">
         <div className="header">{formTitle[page]}</div>
         <div className="body">
@@ -30,7 +93,7 @@ export default function Registration() {
         {page !== 3 &&
           <div className="footer">
             <button disabled={page === 0} onClick={() => setPage(page - 1)}>Prev</button>
-            <button onClick={() => setPage(page + 1)}>{page === 2 ? "Submit" : "Next"}</button>
+            <button onClick={() => navigateForward()}>{page === 2 ? "Submit" : "Next"}</button>
           </div>
         }
       </div>
