@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react'
-import AddressInfo from '../Components/AddressInfo';
-import PaymentInfo from '../Components/PaymentInfo';
-import PersonalInfo from '../Components/PersonalInfo';
-import SuccessInfo from '../Components/SuccessInfo';
+import AddressInfo from '../components/AddressInfo';
+import PaymentInfo from '../components/PaymentInfo';
+import PersonalInfo from '../components/PersonalInfo';
+import SuccessInfo from '../components/SuccessInfo';
 import "../styles/registration.scss"
 import useForm from '../hooks/useForm';
 import * as api from "../services/api";

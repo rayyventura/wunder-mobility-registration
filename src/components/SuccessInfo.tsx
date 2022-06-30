@@ -8,7 +8,7 @@ export default function SuccessInfo({ successData, display }: any) {
         <div className='success' style={{ display: display }}>
             <img src={SuccesIcon} alt="success" />
             <div>
-                <p>{'paymentDataId'}</p>
+                <p>Well Done!</p>
             </div>
         </div>
     )
