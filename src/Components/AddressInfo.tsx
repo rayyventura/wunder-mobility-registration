@@ -3,10 +3,10 @@ import TextField from '@mui/material/TextField';
 import "../styles/address.scss"
 import useForm from '../hooks/useForm';
 
-export default function AddressInfo({ handleChange, formData: addressData }: any) {
+export default function AddressInfo({ handleChange, formData: addressData, display }: any) {
 
     return (
-        <div className='address-info'>
+        <div className={`address-info ${display} `} >
 
             <TextField
                 sx={{ marginBottom: "9px" }}

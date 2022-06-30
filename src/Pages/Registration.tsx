@@ -54,30 +54,8 @@ export default function Registration() {
       localStorage.setItem("registration-wunder-mobility", JSON.stringify(formData));
 
     }
-
-
   }
 
-  function PageView() {
-    switch (page) {
-      case 0:
-        return <PersonalInfo
-          handleChange={handleChange}
-          formData={formData}
-        />;
-      case 1:
-        return <AddressInfo
-          handleChange={handleChange}
-          formData={formData}
-        />;
-      case 2:
-        return <PaymentInfo
-          handleChange={handleChange}
-          formData={formData}
-        />
-      default: return <SuccessInfo successData={successData} />
-    }
-  }
   return (
     <div className="containter">
       <div className="progressbar">
@@ -88,7 +66,25 @@ export default function Registration() {
       <div className="form-container">
         <div className="header">{formTitle[page]}</div>
         <div className="body">
-          <PageView />
+          <PersonalInfo display={page === 0 ? "flex" : "none"}
+            handleChange={handleChange}
+            formData={formData}
+
+          />
+          <AddressInfo display={page === 1 ? "flex" : "none"}
+            handleChange={handleChange}
+            formData={formData}
+
+
+          />
+          <PaymentInfo display={page === 2 ? "flex" : "none"}
+            handleChange={handleChange}
+            formData={formData}
+
+          />
+          <SuccessInfo successData={successData}
+            display={page === 3 ? "flex" : "none"}
+          />
         </div>
         {page !== 3 &&
           <div className="footer">

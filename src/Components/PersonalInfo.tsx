@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/material.css'
+import "../styles/common.scss"
 
 
-export default function PersonalInfo({ handleChange, formData: personalData }: any) {
+export default function PersonalInfo({ handleChange, formData: personalData, display }: any) {
   const [phoneLabel, setPhoneLabel] = useState<string>("");
   return (
-    <div className='personal-info'>
+    <div className={`personal-info ${display}`}  >
 
       <TextField
         sx={{ marginBottom: "9px" }}
