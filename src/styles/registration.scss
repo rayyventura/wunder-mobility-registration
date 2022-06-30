@@ -35,7 +35,7 @@
     }
 
     width: 400px;
-    height: 500px;
+    height: 480px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
@@ -66,7 +66,7 @@
     width: 400px;
     height: 10px;
     background-color: white;
-    margin-bottom: -100px;
+    margin-bottom: -70px;
 
     @media(max-width:430px){
         width: 300px;
