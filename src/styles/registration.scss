@@ -17,12 +17,7 @@
         flex: 60%;
     }
 
-    .footer {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        margin: 2rem;
-    }
+   
 
     button {
         @include button
@@ -48,6 +43,7 @@
     align-items: center;
 
     padding: 2rem;
+    
 
     @media(max-width:430px) {
         width: 300px;

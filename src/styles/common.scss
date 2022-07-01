@@ -1,3 +1,13 @@
+@import './mixins';
+
 .none{
     display: none;
+}
+.component{
+    @include flex-center;
+    flex-direction: column;
+}
+.footer {
+  @include flex-center;
+    margin-top: 16px;
 }

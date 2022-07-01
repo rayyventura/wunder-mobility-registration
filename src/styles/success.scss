@@ -6,6 +6,7 @@
     img {
         width: 83px;
     }
+   
 
     .success-message {
         margin-top: 9px;
@@ -18,9 +19,16 @@
 
         .payment-reference {
             font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .payment-reference-container{
+            @include flex-center;
+            flex-direction: column;
+           
         }
 
         p {
+            text-align: center;
             width: 350px;
 
             @media(max-width: 430px) {

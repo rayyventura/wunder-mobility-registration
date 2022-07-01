@@ -14,12 +14,17 @@ export default function Registration() {
   const [formTitle, setFormTitle] = useState(["Personal Information", "Address ", "Payment ", "Finished"])
   const { form } = useForm();
   const [formData, setFormData] = useState({ ...form });
-  const [successData, setSuccessData] = useState<any>()
+  const [successData, setSuccessData] = useState<any>();
 
   useMemo(() => {
-    const savedPage = JSON.parse(localStorage.getItem('pagei')!)
+    const savedPage = JSON.parse(localStorage.getItem('page-number')!);
+    const persistedPaymentData = JSON.parse(localStorage.getItem("payment-data-id")!);
+
     if (savedPage !== null) {
       setPage(savedPage)
+    }
+    if(persistedPaymentData){
+      setSuccessData(persistedPaymentData)
     }
 
   }, [])
@@ -69,29 +74,32 @@ export default function Registration() {
           <PersonalInfo display={page === 0 ? "flex" : "none"}
             handleChange={handleChange}
             formData={formData}
+            page={page}
+            navigateForward={navigateForward}
+            setPage={setPage}
+
 
           />
           <AddressInfo display={page === 1 ? "flex" : "none"}
             handleChange={handleChange}
             formData={formData}
-
-
+            page={page}
+            navigateForward={navigateForward}
+            setPage={setPage}
           />
           <PaymentInfo display={page === 2 ? "flex" : "none"}
             handleChange={handleChange}
             formData={formData}
+            page={page}
+            navigateForward={navigateForward}
+            setPage={setPage}
 
           />
           <SuccessInfo successData={successData}
             display={page === 3 ? "flex" : "none"}
           />
         </div>
-        {page !== 3 &&
-          <div className="footer">
-            <button disabled={page === 0} onClick={() => setPage(page - 1)}>Prev</button>
-            <button onClick={() => navigateForward()}>{page === 2 ? "Submit" : "Next"}</button>
-          </div>
-        }
+
       </div>
     </div>
   )
