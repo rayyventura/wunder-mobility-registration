@@ -1,8 +1,6 @@
 
 import axios from "axios";
 
-const Endpoint =  process.env.REACT_APP_ENDPOINT
-const Base_URL = process.env.REACT_APP_BASE_URL;
 function createConfig(token: string) {
     return {
         headers: {
@@ -18,7 +16,8 @@ interface PaymentBody {
 }
 export async function savePaymentData(data: PaymentBody) {
     const config = createConfig("")
-    const res = await axios.post(`${Endpoint}`, data, config)
+    const res = await axios.post(`https://37f32cl571.execute-api.eu-central-1.amazonaws.com/default/wunderfleet-recruiting-backend-dev-save-paym
+    ent-data`, data, config)
     console.log(res.data)
     return res.data;
 }
