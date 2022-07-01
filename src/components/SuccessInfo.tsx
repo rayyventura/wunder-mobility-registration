@@ -5,7 +5,7 @@ import { ThreeDots } from 'react-loader-spinner';
 
 export default function SuccessInfo({ successData, display }: any) {
 
-localStorage.setItem("payment-data-id",JSON.stringify(successData))
+successData && localStorage.setItem("payment-data-id",JSON.stringify(successData));
 
     return (
         <div className='success' style={{ display: display }}>

@@ -18,7 +18,7 @@ export default function Registration() {
 
   useMemo(() => {
     const savedPage = JSON.parse(localStorage.getItem('page-number')!);
-    const persistedPaymentData = JSON.parse(localStorage.getItem("payment-data-id")!);
+    const persistedPaymentData = JSON.parse(localStorage.getItem('payment-data-id')!);
 
     if (savedPage !== null) {
       setPage(savedPage)
