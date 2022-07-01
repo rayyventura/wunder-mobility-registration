@@ -17,7 +17,7 @@ export default function Registration() {
   const [successData, setSuccessData] = useState<any>()
 
   useMemo(() => {
-    const savedPage = JSON.parse(localStorage.getItem('page-wunder-mobility')!)
+    const savedPage = JSON.parse(localStorage.getItem('pagei')!)
     if (savedPage !== null) {
       setPage(savedPage)
     }
@@ -32,26 +32,26 @@ export default function Registration() {
     setFormData({ ...formData, [name]: value });
   }
 
-  function navigateForward() {
+  async function navigateForward() {
     setPage(page + 1);
-    localStorage.setItem("page-wunder-mobility", JSON.stringify(page + 1));
+    localStorage.setItem("page-number", JSON.stringify(page + 1));
 
     if (page === 2) {
       try {
-        const response = api.savePaymentData({
+        const response = await api.savePaymentData({
           customerId: 1,
           iban: formData.iban,
-          owner: formData.acountOwner
+          owner: formData.accountOwner
         }
         )
-        setSuccessData(response);
-        api.register(formData);
+        setSuccessData(response.paymentDataId);
+        api.register({ ...formData, paymentDataId: response.paymentDataId });
       } catch (error) {
         console.log(error);
       }
 
     } else {
-      localStorage.setItem("registration-wunder-mobility", JSON.stringify(formData));
+      localStorage.setItem("registration", JSON.stringify(formData));
 
     }
   }

@@ -30,7 +30,7 @@ export const initialForm = {
 const FormContext = createContext<any>(null);
 
 export function FormProvider({ children }: AuxProps) {
-  const persistedRegistration = JSON.parse(localStorage.getItem("registration-wunder-mobility")!);
+  const persistedRegistration = JSON.parse(localStorage.getItem("registration")!);
   const [form, setForm] = useState(persistedRegistration);
 
   useMemo(() => {
