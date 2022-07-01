@@ -8,9 +8,11 @@ import { validateNextStep } from './utils/valitadeNextStep';
 
 export default function PersonalInfo({ handleChange, formData: personalData, display, page, navigateForward, setPage }: any) {
   const [phoneLabel, setPhoneLabel] = useState<string>("");
+  
    function isDisabled() {
         return validateNextStep(personalData, ["firstName", "lastName", "phone"]);
     }
+  
   return (
     <div className={`personal-info component ${display}`}  >
 
