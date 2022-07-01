@@ -1,7 +1,7 @@
 import SuccesIcon from '../assets/success.png';
 import '../styles/success.scss'
 import { ThreeDots } from 'react-loader-spinner';
-import { json } from 'stream/consumers';
+
 
 export default function SuccessInfo({ successData, display }: any) {
 
