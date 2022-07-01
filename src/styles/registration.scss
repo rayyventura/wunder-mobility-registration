@@ -23,14 +23,16 @@
         justify-content: space-around;
         margin: 2rem;
     }
-    button{
+
+    button {
         @include button
     }
+
     button:hover {
         @include hover;
     }
 
-    .none{
+    .none {
         display: none;
     }
 
@@ -46,18 +48,22 @@
     align-items: center;
 
     padding: 2rem;
-    @media(max-width:430px){
+
+    @media(max-width:430px) {
         width: 300px;
-        .header{
+
+        .header {
             font-size: 2rem;
         }
     }
-    @media(max-width:315px){
+
+    @media(max-width:315px) {
         width: 280px;
-        .header{
+
+        .header {
             font-size: 1.5rem;
         }
-       
+
     }
 
 }
@@ -68,26 +74,27 @@
     background-color: white;
     margin-bottom: -10px;
 
-    @media(max-width:430px){
+    @media(max-width:430px) {
         width: 300px;
     }
-    @media(max-width:315px){
+
+    @media(max-width:315px) {
         width: 280px;
     }
-  }
-  
-  .progressbar div {
+}
+
+.progressbar div {
     width: 33.3%;
     height: 100%;
     background-color: $main-color;
-  }
+}
 
 .containter {
     background: $main-color;
     background: radial-gradient(circle,
-          #AED5EB 0%,
-          #8eb8cf 74%,
-          #577d92 100%,
+            #AED5EB 0%,
+            #8eb8cf 74%,
+            #577d92 100%,
         );
     width: 100vw;
     height: 100vh;

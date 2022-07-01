@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Registration from './Pages/Registration';
 import "./App.scss"
-import FormContext, { FormProvider } from './contexts/formcontext';
+import { FormProvider } from './contexts/formcontext';
 
 
 function App() {

@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 const Base_URL = 'https://wunder-mobility-api.herokuapp.com';
+
 interface PaymentBody {
     customerId: number,
     iban: string,
@@ -14,5 +15,6 @@ export async function savePaymentData(data: PaymentBody) {
 }
 
 export async function register(data: PaymentBody) {
-   const res = await axios.post(`${Base_URL}/register`, data);
+    const res = await axios.post(`${Base_URL}/register`, data);
+    console.log(res.data)
 }
