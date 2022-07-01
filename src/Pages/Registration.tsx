@@ -38,13 +38,13 @@ export default function Registration() {
 
     if (page === 2) {
       try {
-        /*  const response = api.savePaymentData({
-           customerId: 1,
-           iban: formData.iban,
-           owner: formData.acountOwner
-         }
-         )
-         setSuccessData(response); */
+        const response = api.savePaymentData({
+          customerId: 1,
+          iban: formData.iban,
+          owner: formData.acountOwner
+        }
+        )
+        setSuccessData(response);
         api.register(formData);
       } catch (error) {
         console.log(error);
