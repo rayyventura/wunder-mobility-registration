@@ -7,8 +7,7 @@ Possible Optimizations:
 
 Think that could be improved:
 * As it was my first time working with SCSS, I wasn't pretty used to it, since I normally use styled-components. It wasn't difficult to implement, even though I believe I have made it more complex than it should be. So, having more experience with this css framework and refactoring my stylesheet is definitely something I have to work on. 
-* Other than that, I wasn't able to access the Enpoint proposed due to credential restrtrictions. So this is also an aspect to improve. 
-Here is also the link for an API that I've built to persist the user-data:
-  - https://github.com/rayyventura/wunder-mobility-api
+* Other than that, I wasn't able to access the endpoint proposed in the frontend due to credential restrtrictions (CORS). So I've developed an endpoint in the backend to do so. 
+  - https://github.com/rayyventura/wunder-mobility-api. 
   - </br>
 The app is available at: https://wunder-mobility-registration.vercel.app/
