@@ -5,7 +5,7 @@ import "../styles/common.scss"
 
 export default function Payment({ handleChange, formData: paymentData, display, page, navigateForward, setPage }: any) {
 function isDisabled() {
-        return validateNextStep(paymentData, ["accountOwner", "IBAN"]);
+        return validateNextStep(paymentData, ["accountOwner", "iban"]);
     }
     return (
         <div className={`Payment-info component ${display}`} >
