@@ -24,5 +24,6 @@ export async function savePaymentData(data: PaymentBody) {
 }
 
 export async function register(data: PaymentBody) {
-    await axios.post(`${Base_URL}/register`, data);
+   const res = await axios.post(`https://wunder-mobility-api.herokuapp.com/register`, data);
+   console.log(res.data)
 }
