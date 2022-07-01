@@ -18,7 +18,9 @@
     border-radius: 6px;
 
     @include flex-center;
-   
+    @media(max-width:430px) {
+        width: 100px;
+    }
 }
 
 @mixin hover {
